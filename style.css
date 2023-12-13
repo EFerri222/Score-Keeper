@@ -1,0 +1,20 @@
+body {
+    text-align: center;
+}
+
+button {
+    width: 33.33%;
+}
+
+img {
+    width: 25em;
+}
+
+.btn-group {
+    width: 25em;
+}
+
+.fade-out {
+    opacity: 0;
+    transition: opacity 2s;
+}
