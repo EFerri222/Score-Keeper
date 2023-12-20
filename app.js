@@ -20,6 +20,8 @@ function gameOver() {
     winMessage.style.display = "block";
     playerOneBtn.removeEventListener("click", playerOneScores);
     playerTwoBtn.removeEventListener("click", playerTwoScores);
+    playerOneBtn.setAttribute("disabled", "");
+    playerTwoBtn.setAttribute("disabled", "");
 }
 
 function playerOneScores() {
@@ -42,6 +44,8 @@ function playerTwoScores() {
 
 function resetGame() {
     winMessage.style.display = "none";
+    playerOneBtn.removeAttribute("disabled");
+    playerTwoBtn.removeAttribute("disabled");
     playerOneScore = 0;
     playerTwoScore = 0;
     playerOneScoreSpan.innerHTML = 0;
