@@ -14,6 +14,7 @@ let playerTwoScore = 0;
 
 playToSelect.addEventListener("change", function(e) {
     playTo = parseInt(e.target.value);
+    resetGame();
 })
 
 function gameOver() {
