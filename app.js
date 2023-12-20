@@ -16,40 +16,40 @@ playToSelect.addEventListener("change", function(e) {
     playTo = parseInt(e.target.value);
 })
 
-playerOneBtn.addEventListener("click", function() {
+function gameOver() {
+    winMessage.style.display = "block";
+    playerOneBtn.removeEventListener("click", playerOneScores);
+    playerTwoBtn.removeEventListener("click", playerTwoScores);
+}
+
+function playerOneScores() {
     playerOneScore++;
     playerOneScoreSpan.innerHTML = playerOneScore;
     if(playerOneScore === playTo) {
         winMessage.innerText = "Player One Wins!";
-        showAndFadeOutWinMessage();
-        resetGame();
+        gameOver();
     }
-})
+}
 
-playerTwoBtn.addEventListener("click", function() {
+function playerTwoScores() {
     playerTwoScore++;
     playerTwoScoreSpan.innerHTML = playerTwoScore;
     if(playerTwoScore === playTo) {
         winMessage.innerText = "Player Two Wins!";
-        showAndFadeOutWinMessage();
-        resetGame();
+        gameOver();
     }
-})
-
-resetBtn.addEventListener("click", resetGame);
-
-function showAndFadeOutWinMessage() {
-    winMessage.classList.add("fade-out");
-
-    setTimeout(function() {
-        winMessage.classList.remove("fade-out");
-        winMessage.innerText = "";
-    }, 2000);
 }
 
 function resetGame() {
+    winMessage.style.display = "none";
     playerOneScore = 0;
     playerTwoScore = 0;
     playerOneScoreSpan.innerHTML = 0;
     playerTwoScoreSpan.innerHTML = 0;
+    playerOneBtn.addEventListener("click", playerOneScores);
+    playerTwoBtn.addEventListener("click", playerTwoScores);
 }
+
+playerOneBtn.addEventListener("click", playerOneScores);
+playerTwoBtn.addEventListener("click", playerTwoScores);
+resetBtn.addEventListener("click", resetGame);
