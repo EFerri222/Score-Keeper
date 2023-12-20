@@ -27,7 +27,7 @@ function gameOver() {
 function playerOneScores() {
     playerOneScore++;
     playerOneScoreSpan.innerHTML = playerOneScore;
-    if(playerOneScore === playTo) {
+    if(playerOneScore >= playTo && playerOneScore > playerTwoScore + 1) {
         winMessage.innerText = "Player One Wins!";
         gameOver();
     }
@@ -36,7 +36,7 @@ function playerOneScores() {
 function playerTwoScores() {
     playerTwoScore++;
     playerTwoScoreSpan.innerHTML = playerTwoScore;
-    if(playerTwoScore === playTo) {
+    if(playerTwoScore >= playTo && playerTwoScore > playerOneScore + 1) {
         winMessage.innerText = "Player Two Wins!";
         gameOver();
     }
