@@ -30,6 +30,8 @@ function playerOneScores() {
     playerOneScoreSpan.innerHTML = playerOneScore;
     if(playerOneScore >= playTo && playerOneScore > playerTwoScore + 1) {
         winMessage.innerText = "Player One Wins!";
+        playerOneScoreSpan.style.color = "green";
+        playerTwoScoreSpan.style.color = "red";
         gameOver();
     }
 }
@@ -39,6 +41,8 @@ function playerTwoScores() {
     playerTwoScoreSpan.innerHTML = playerTwoScore;
     if(playerTwoScore >= playTo && playerTwoScore > playerOneScore + 1) {
         winMessage.innerText = "Player Two Wins!";
+        playerOneScoreSpan.style.color = "red";
+        playerTwoScoreSpan.style.color = "green";
         gameOver();
     }
 }
@@ -51,6 +55,8 @@ function resetGame() {
     playerTwoScore = 0;
     playerOneScoreSpan.innerHTML = 0;
     playerTwoScoreSpan.innerHTML = 0;
+    playerOneScoreSpan.style.color = "black";
+    playerTwoScoreSpan.style.color = "black";
     playerOneBtn.addEventListener("click", playerOneScores);
     playerTwoBtn.addEventListener("click", playerTwoScores);
 }
